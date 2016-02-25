@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="test">
+	<head>
+		<title>Angular Test</title>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+	<body>
+		<div ng-controller="rateController as rate">
+			{{mohit}}
+			<label>Qunatity:</label>
+			<input type="number" min="0" ng-model="rate.qty"></input>
+			<label>Price:</label>
+			<input type="number" min="0" ng-model="rate.price"></input>
+			<select ng-model="rate.value">
+				<option ng-repeat="curr in rate.currencies">{{curr}}</option>
+			</select>
+			Total =<span ng-repeat="curr in rate.currencies">{{rate.total(curr) | currency:curr}} </span> 
+		</div>
+	</body>
+</html>
